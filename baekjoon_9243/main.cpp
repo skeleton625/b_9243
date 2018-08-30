@@ -1,19 +1,11 @@
 #include<cstdio>
-#include<cmath>
 
-int n, t;
+int n, m;
 char i1[1001], i2[1001];
 int main() {
-	scanf_s("%d%*c", &n);
-	gets_s(i1,1001); gets_s(i2,1001);
-	if (n % 2 == 0) t = 0;
-	else t = 1;
-	for (int i = 0; i1[i]; i++) {
-		if (abs(i1[i] - i2[i]) == t) {
-			printf("Deletion failed");
-			return 0;
-		}
-	}
-	printf("Deletion succeeded");
+	scanf_s("%d\n%s\n%s", &n, i1,1001, i2,1001);
+	n %= 2;
+	for (int i = 0; i1[i]; i++) m += (i1[i] + i2[i] + n) % 2;
+	puts(!m? "Deletion successed" : "Deletion failed");
 	return 0;
 }
